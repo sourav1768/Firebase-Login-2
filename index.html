@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Firebase Login
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!--LOGIN DIALOG-->
+    <dialog class="login-dialog mdl-dialog">
+        <h4 class="mdl-dialog__title">Sign-In</h4>
+        <div class="mdl-dialog__content">
+            <p class='loginError'></p>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="loginEmail">
+                <label class="mdl-textfield__label" for="sample3">E-mail</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="loginPassword">
+                <label class="mdl-textfield__label" for="sample3">Password</label>
+            </div>
+        </div>
+        <div class="mdl-dialog__actions">
+            <!-- Accent-colored raised button with ripple -->
+            <!-- Colored raised button -->
+
+            <button
+                class="loginButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Sign-In
+            </button>
+            <button class="newAcc mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                New Acc
+            </button>
+            <!-- MDL Spinner Component -->
+            <div class="loginProgress mdl-spinner mdl-js-spinner is-active"></div>
+
+        </div>
+    </dialog>
+
+    <!--CREATE ACCOUNT DIALOG-->
+    <dialog class="signup-dialog mdl-dialog">
+        <h4 class="mdl-dialog__title">Create new Account</h4>
+        <div class="mdl-dialog__content">
+            <p class='signupError'></p>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="signupEmail">
+                <label class="mdl-textfield__label" for="sample3">E-mail</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="signupPassword">
+                <label class="mdl-textfield__label" for="sample3">Password</label>
+            </div>
+        </div>
+        <div class="mdl-dialog__actions ">
+            <!-- Accent-colored raised button with ripple -->
+
+            <button
+                class="signupButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Create Account
+            </button>
+
+
+            <!-- MDL Spinner Component -->
+            <div class="loginProgress mdl-spinner mdl-js-spinner is-active"></div>
+
+        </div>
+        <button class="backToLogin mdl-button mdl-js-button mdl-button-icon">
+            <i class="material-icons">arrow_back</i>
+        </button>
+
+    </dialog>
+
+    <!--USERNAME ENTER-->
+    <dialog class="username-dialog mdl-dialog">
+        <h4 class="mdl-dialog__title">Enter Username</h4>
+        <div class="mdl-dialog__content">
+            <p class='uernameError'></p>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="username">
+                <label class="mdl-textfield__label" for="sample3">username</label>
+            </div>
+        </div>
+        <div class="mdl-dialog__actions ">
+            <!-- Accent-colored raised button with ripple -->
+            <button
+                class="usernameButton mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Continue
+            </button>
+            <!-- MDL Spinner Component -->
+            <div class="usernameProgress mdl-spinner mdl-js-spinner is-active"></div>
+        </div>
+    </dialog>
+
+
+    <div class="login-cover">
+
+        <!-- MDL Spinner Component -->
+        <div class="page-loader mdl-spinner mdl-js-spinner is-active"></div>
+
+    </div>
+
+    <div class="details-enter-cover">
+
+    </div>
+
+    <!--COMMENT DIALOG BOX-->
+    <dialog class="" id="details-dialog">
+
+        <button class="mdl-button mdl-js-button mdl-button--icon token-dialog-close-icon">
+            <span class="material-icons ">close</span>
+        </button>
+        <h4 class="mdl-dialog__title token-dialog-title" style="font-family: 'Montserrat', sans-serif;">Let's make a new
+            comment.</h4>
+        <div class="mdl-dialog__content token-dialog-content">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="details">
+                <label class="mdl-textfield__label" for="sample3">Comment</label>
+
+            </div>
+            <div class="details-showUsername-title">Posting as <div class="details-showUsername"></div>
+
+            </div>
+        </div>
+        <div class="mdl-dialog__actions token-dialog-actions">
+            <button type="button" class="mdl-button">Agree</button>
+        </div>
+    </dialog>
+
+
+    <!--MAIN PAGE CONTENT-->
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <video autoplay loop muted id="myVideo">
+            <source src="./video.mp4" type="video/mp4">
+        </video>
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+            <div class="mdl-layout-icon"></div>
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout__title" style="letter-spacing: 5px;">CRUISE</span>
+                <span class="page-title-span mdl-layout__title"> | </span>
+                <span class="page-title-span mdl-layout__title"> Home </span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <!-- Colored raised button -->
+                    <!-- Icon button -->
+                    <button class="button-addContent mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">add</i>
+                    </button>
+
+                    <button class="signOutButton mdl-button mdl-js-button mdl-js-ripple-effect">
+                        Sign-Out <span class="button-right-icon material-icons">
+                            account_circle
+                        </span>
+                    </button>
+
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+        </div>
+        <main class="mdl-layout__content">
+            <!--HELLO USERNAME-->
+            <p id="usernameDisplay" class="display-4">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <span id="anim"></span><span id="shuffle"></span>
+                <br />
+                <br />
+            </p>
+
+            <!--FStextContent-->
+            <div class="FSbackground" id="FSBackground">
+                
+            </div>
+        </main>
+    </div>
+
+
+
+    <!--MAIN VIDEO
+    <div class='body-section'>
+        <div class="grid-container">
+            <div class="mainVideo-grid">
+                <div itemscope itemtype="https://schema.org/VideoObject">
+                    <meta itemprop="uploadDate" content="Tue Jun 18 2019 16:51:54 GMT+0530 (India Standard Time)" />
+                    <meta itemprop="name" content="Srijan VLOG Day 1__ IIT ISM" />
+                    <meta itemprop="duration" content="PT4M33.415S" />
+                    <meta itemprop="thumbnailUrl" content="https://content.jwplatform.com/thumbs/5Gxp1rFl-1280.jpg" />
+                    <meta itemprop="contentUrl" content="https://content.jwplatform.com/videos/5Gxp1rFl-y0NqfDts.mp4" />
+                    <div style="position:relative; overflow:hidden; padding-bottom:56.25%"> <iframe
+                            src="https://cdn.jwplayer.com/players/5Gxp1rFl-Ez0ZMhZo.html" width="100%" height="100%"
+                            frameborder="0" scrolling="auto" title="Srijan VLOG Day 1__ IIT ISM"
+                            style="position:absolute;" allowfullscreen></iframe> </div>
+                </div>
+            </div>
+            <div class="username-grid">
+                <p id="usernameDisplay">
+                    <span id="anim"></span><span id="shuffle"></span>
+                    <br />
+                    <br />
+                </p>
+            </div>
+        </div>
+    </div>-->
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCvOGn3N8xMlh2CmfjU6ZFpJdZsVQedT4A",
+            authDomain: "fir-login-e28d0.firebaseapp.com",
+            databaseURL: "https://fir-login-e28d0.firebaseio.com",
+            projectId: "fir-login-e28d0",
+            storageBucket: "fir-login-e28d0.appspot.com",
+            messagingSenderId: "749182310893",
+            appId: "1:749182310893:web:2ee6e065b427ab9099efe4"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var db = firebase.firestore();
+        console.log(db);
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+    <script src="./RTDB.js"></script>
+</body>
+
+</html>
